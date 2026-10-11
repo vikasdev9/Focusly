@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Focusly" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/bg_mint_selected</item>
+        <item name="colorOnPrimaryContainer">@color/forest_dark</item>
+        <item name="colorSecondary">@color/coral_cta</item>
+        <item name="colorOnSecondary">@color/charcoal</item>
+        <item name="android:windowBackground">@color/forest_dark</item>
+        <item name="android:statusBarColor">@color/forest_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.Focusly" parent="Base.Theme.Focusly" />
+</resources>

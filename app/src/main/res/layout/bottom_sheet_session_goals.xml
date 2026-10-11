@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_white_unselected"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Top Drag Handle -->
+    <View
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_adjuster_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Session Goals"
+        android:textColor="@color/charcoal"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Set your focus goal and configure long breaks."
+        android:textColor="@color/muted_text"
+        android:textSize="13sp" />
+
+    <!-- Section 1: Target Sets -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="⚑ Target Sets"
+            android:textColor="@color/charcoal"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTargetSetsValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="4"
+            android:textColor="@color/primary_green"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/seekBarTargetSets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:max="9"
+        android:progress="3"
+        android:progressTint="@color/primary_green"
+        android:thumbTint="@color/primary_green" />
+
+    <!-- Section 2: Long Break Toggle -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="⏰ Long Break"
+            android:textColor="@color/charcoal"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchLongBreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:checked="true"
+            app:thumbTint="@color/primary_green"
+            app:trackTint="@color/bg_mint_selected" />
+    </RelativeLayout>
+
+    <!-- Section 3: Long Break Duration -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="⌛ Duration"
+            android:textColor="@color/charcoal"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvLongBreakDurationValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="30m"
+            android:textColor="@color/primary_green"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/seekBarLongBreakDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:max="55"
+        android:progress="25"
+        android:progressTint="@color/primary_green"
+        android:thumbTint="@color/primary_green" />
+
+    <!-- Section 4: Interval Adjuster -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="🔄 Interval"
+            android:textColor="@color/charcoal"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvIntervalValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="every 3 sets"
+            android:textColor="@color/primary_green"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Interval Minus/Plus Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnMinusInterval"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_adjuster_button"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_remove"
+            app:tint="@color/charcoal" />
+
+        <TextView
+            android:id="@+id/tvIntervalDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="every 3 sets"
+            android:textColor="@color/muted_text"
+            android:textSize="13sp" />
+
+        <ImageButton
+            android:id="@+id/btnPlusInterval"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_adjuster_button"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_add"
+            app:tint="@color/charcoal" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSaveGoals"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_button_dark_green"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

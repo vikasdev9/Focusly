@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_warm"
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    android:paddingBottom="100dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp">
+
+        <!-- Top Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.1"
+                    android:text="@string/home_date_sample"
+                    android:textColor="@color/muted_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/home_greeting"
+                    android:textColor="@color/charcoal"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Top Right Energy Chip -->
+            <LinearLayout
+                android:id="@+id/chipEnergy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_chip_energy"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_leaf"
+                    app:tint="@color/primary_green" />
+
+                <TextView
+                    android:id="@+id/tvEnergyCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="0"
+                    android:textColor="@color/charcoal"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Main Hero Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/forest_dark"
+            app:cardCornerRadius="26dp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:id="@+id/heroTextContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.1"
+                        android:text="@string/focus_growth_title"
+                        android:textColor="@color/hero_muted_text"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvHeroTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/grow_cedar_title"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvHeroSub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/focus_growth_sub"
+                        android:textColor="@color/hero_subtext"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Plant Graphic Overlay -->
+                <ImageView
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_plant_hero" />
+
+                <!-- Coral CTA Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnStartFocus"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_below="@id/heroTextContainer"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_button_coral"
+                    android:drawableStart="@drawable/ic_play_arrow"
+                    android:drawablePadding="8dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:gravity="center"
+                    android:stateListAnimator="@null"
+                    android:text="@string/start_focus_btn"
+                    android:textAllCaps="false"
+                    android:textColor="@color/charcoal"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:drawableTint="@color/charcoal" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- HOW ARE YOU FEELING Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/bg_warm_card"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.08"
+                            android:text="@string/feeling_header"
+                            android:textColor="@color/muted_text"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/feeling_sub"
+                            android:textColor="@color/charcoal"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_timer"
+                        app:tint="@color/muted_text" />
+                </RelativeLayout>
+
+                <!-- Pace Cards Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <!-- Low Energy Card -->
+                    <LinearLayout
+                        android:id="@+id/cardPaceLow"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_white_unselected"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_cloud"
+                            app:tint="@color/charcoal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/pace_low_energy"
+                            android:textColor="@color/charcoal"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/pace_low_desc"
+                            android:textColor="@color/muted_text"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <!-- Steady Card (Selected) -->
+                    <LinearLayout
+                        android:id="@+id/cardPaceSteady"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_selected"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_half_moon"
+                            app:tint="@color/primary_green" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/pace_steady"
+                            android:textColor="@color/charcoal"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/pace_steady_desc"
+                            android:textColor="@color/muted_text"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <!-- Bright Card -->
+                    <LinearLayout
+                        android:id="@+id/cardPaceBright"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_white_unselected"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_sun"
+                            app:tint="@color/charcoal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/pace_bright"
+                            android:textColor="@color/charcoal"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/pace_bright_desc"
+                            android:textColor="@color/muted_text"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Calm Minutes Adjuster Bar -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_card_white_unselected"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/calm_minutes"
+                            android:textColor="@color/charcoal"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/adjust_session_desc"
+                            android:textColor="@color/muted_text"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/btnMinusMinutes"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_adjuster_button"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_remove"
+                            app:tint="@color/charcoal" />
+
+                        <TextView
+                            android:id="@+id/tvCalmMinutesValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:text="25 min"
+                            android:textColor="@color/charcoal"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/btnPlusMinutes"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_adjuster_button"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_add"
+                            app:tint="@color/charcoal" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CHOOSE A PLANT Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.08"
+                android:text="@string/choose_plant_header"
+                android:textColor="@color/muted_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvViewAllPlants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/view_all"
+                android:textColor="@color/charcoal"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Plant 1: Cedar (Selected) -->
+                <LinearLayout
+                    android:id="@+id/plantCedar"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_card_selected"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_plant_hero" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/plant_cedar"
+                        android:textColor="@color/charcoal"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Plant 2: Plumeria -->
+                <LinearLayout
+                    android:id="@+id/plantPlumeria"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_card_unselected"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_plant_hero" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/plant_plumeria"
+                        android:textColor="@color/charcoal"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Plant 3: Chili Pepper -->
+                <LinearLayout
+                    android:id="@+id/plantChili"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_card_unselected"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_plant_hero" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/plant_chili"
+                        android:textColor="@color/charcoal"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Plant 4: Dusty Miller -->
+                <LinearLayout
+                    android:id="@+id/plantDusty"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/bg_card_unselected"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_plant_hero" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/plant_dusty"
+                        android:textColor="@color/charcoal"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Two Quick Action Cards -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <!-- Card 1: Block Apps -->
+            <LinearLayout
+                android:id="@+id/cardBlockApps"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_lock"
+                    app:tint="@color/charcoal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/block_apps_title"
+                        android:textColor="@color/charcoal"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/block_apps_sub"
+                        android:textColor="@color/muted_text"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Card 2: My Plants -->
+            <LinearLayout
+                android:id="@+id/cardMyPlants"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_selected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_plant"
+                    app:tint="@color/primary_green" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/my_plants_title"
+                        android:textColor="@color/charcoal"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvMyPlantsGrown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/my_plants_sub"
+                        android:textColor="@color/muted_text"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- THIS WEEK Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.08"
+                android:text="@string/this_week_header"
+                android:textColor="@color/muted_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvThisWeekTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/this_week_time"
+                android:textColor="@color/muted_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Weekly Focus Chart View -->
+        <com.focusly.app.views.WeeklyChartView
+            android:id="@+id/weeklyChartView"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

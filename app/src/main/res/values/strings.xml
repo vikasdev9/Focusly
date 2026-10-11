@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Focusly</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_insights">Insights</string>
+    <string name="nav_focus">Focus</string>
+    <string name="nav_plants">Plants</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Home Header -->
+    <string name="home_date_sample">TUE • 15 SEP</string>
+    <string name="home_greeting">Good morning,\nVikas</string>
+    <string name="focus_growth_title">FOCUS GROWTH</string>
+    <string name="grow_cedar_title">Grow your Cedar</string>
+    <string name="focus_growth_sub">25 calm minutes • +25 energy</string>
+    <string name="start_focus_btn">▶  Start Focus</string>
+
+    <!-- How Are You Feeling -->
+    <string name="feeling_header">HOW ARE YOU FEELING?</string>
+    <string name="feeling_sub">Choose your calm pace</string>
+    <string name="pace_low_energy">Low energy</string>
+    <string name="pace_low_desc">10 min • A gentle start</string>
+    <string name="pace_steady">Steady</string>
+    <string name="pace_steady_desc">25 min • A balanced rhythm</string>
+    <string name="pace_bright">Feeling bright</string>
+    <string name="pace_bright_desc">45 min • Ready to stretch</string>
+    <string name="calm_minutes">Calm minutes</string>
+    <string name="adjust_session_desc">Adjust your steady session</string>
+    <string name="min_unit">min</string>
+
+    <!-- Plant Selection -->
+    <string name="choose_plant_header">CHOOSE A PLANT</string>
+    <string name="view_all">View all</string>
+    <string name="plant_cedar">Cedar</string>
+    <string name="plant_plumeria">Plumeria</string>
+    <string name="plant_chili">Chili Pepper</string>
+    <string name="plant_dusty">Dusty Miller</string>
+
+    <!-- Quick Cards -->
+    <string name="block_apps_title">Block apps</string>
+    <string name="block_apps_sub">Protect attention</string>
+    <string name="my_plants_title">My Plants</string>
+    <string name="my_plants_sub">0 grown</string>
+
+    <!-- Weekly Chart -->
+    <string name="this_week_header">THIS WEEK</string>
+    <string name="this_week_time">4H 20M</string>
+
+    <!-- Focus Timer -->
+    <string name="timer_mode_focus">Focus</string>
+    <string name="timer_mode_pomodoro">Pomodoro</string>
+    <string name="timer_mode_quick">Quick Focus</string>
+    <string name="stay_focused">Stay focused</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="finish">Finish</string>
+    <string name="add_5_min">+5 min</string>
+    <string name="beautiful_work">Beautiful work!</string>
+    <string name="session_completed_desc">25 minutes focused</string>
+    <string name="energy_earned_desc">+25 Focus Energy</string>
+    <string name="start_another">Start Another</string>
+    <string name="take_a_break">Take a Break</string>
+    <string name="done">Done</string>
+
+    <!-- Splash & Onboarding -->
+    <string name="splash_tagline">Focus better. Live better.</string>
+    <string name="skip">Skip</string>
+    <string name="onboarding_1_tag">FOCUS THAT GROWS</string>
+    <string name="onboarding_1_title">Turn calm minutes into something alive.</string>
+    <string name="onboarding_1_sub">Choose a plant, stay with one task, and watch your garden grow with every completed session.</string>
+    <string name="onboarding_2_tag">YOUR PACE MATTERS</string>
+    <string name="onboarding_2_title">Start with how you feel today.</string>
+    <string name="onboarding_2_sub">Pick a mood or set your own calm minutes. Focusly meets your energy instead of fighting it.</string>
+    <string name="onboarding_3_tag">A PROTECTED MOMENT</string>
+    <string name="onboarding_3_title">Give your attention room to settle.</string>
+    <string name="onboarding_3_sub">Keep the session open, let distractions wait, and finish to save your plant permanently.</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_begin_focus">Begin your focus</string>
+    <string name="onboarding_welcome_title">Welcome to Focusly</string>
+    <string name="onboarding_welcome_sub">Cultivate deep focus and digital wellbeing, one calm session at a time.</string>
+    <string name="get_started">Get Started</string>
+
+    <!-- General -->
+    <string name="loading">Loading…</string>
+</resources>

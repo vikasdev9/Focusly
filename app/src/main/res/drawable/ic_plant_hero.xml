@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Circle soil base -->
+    <path
+        android:fillColor="#0D2D16"
+        android:pathData="M32,32m-30,0a30,30 0 1,0 60,0a30,30 0 1,0 -60,0"/>
+    <!-- Brown pot / soil -->
+    <path
+        android:fillColor="#6A4E38"
+        android:pathData="M22,44h20c1,0 2,-1 1.8,-2l-2.5,-10h-14.6l-2.5,10c-.2,1 .8,2 1.8,2z"/>
+    <!-- Seedling stem -->
+    <path
+        android:fillColor="#159447"
+        android:pathData="M31,22h2v12h-2z"/>
+    <!-- Left Leaf -->
+    <path
+        android:fillColor="#159447"
+        android:pathData="M31,26c-5,0 -8,-4 -8,-8c5,0 8,4 8,8z"/>
+    <!-- Right Leaf -->
+    <path
+        android:fillColor="#159447"
+        android:pathData="M33,24c5,0 8,-4 8,-8c-5,0 -8,4 -8,8z"/>
+</vector>

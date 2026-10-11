@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Backgrounds -->
+    <color name="bg_warm">#F5F3E9</color>
+    <color name="bg_warm_card">#ECE8D9</color>
+    <color name="bg_cream_card">#ECE8D9</color>
+    <color name="bg_mint_selected">#C6E4C8</color>
+    <color name="bg_mint_chip">#CCE2D0</color>
+
+    <!-- Forest & Greens -->
+    <color name="forest_dark">#043B22</color>
+    <color name="forest_dark_pressed">#022B18</color>
+    <color name="primary_green">#12884E</color>
+    <color name="emerald">#12884E</color>
+    <color name="soft_sage">#DDD8C7</color>
+
+    <!-- Brand & Accent Colors -->
+    <color name="coral_cta">#EF724E</color>
+    <color name="coral_cta_pressed">#D75E3B</color>
+    <color name="soft_blue">#BFD9E8</color>
+    <color name="lavender">#D9D4EA</color>
+    <color name="warm_yellow">#E8D889</color>
+
+    <!-- Text & Neutral -->
+    <color name="charcoal">#0E2015</color>
+    <color name="muted_text">#7C8875</color>
+    <color name="light_muted_text">#98A492</color>
+    <color name="hero_muted_text">#81A990</color>
+    <color name="hero_subtext">#9EC7AE</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="divider_color">#E1E4DF</color>
+
+    <!-- Card Borders & Backgrounds -->
+    <color name="selected_stroke">#5EA86F</color>
+    <color name="unselected_card_bg">#ECE8D9</color>
+    <color name="pace_unselected_bg">#F8F7F2</color>
+</resources>

@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_warm"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="100dp">
+
+        <!-- Top Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_timer"
+                app:tint="@color/primary_green" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Make it count."
+                android:textColor="@color/charcoal"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Tag Capsules Row -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Activity Tag -->
+                <LinearLayout
+                    android:id="@+id/cardActivityTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_card_white_unselected"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp">
+
+                    <TextView
+                        android:id="@+id/tvActivityName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Grow your Cedar"
+                        android:textColor="@color/charcoal"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_remove"
+                        app:tint="@color/muted_text" />
+                </LinearLayout>
+
+                <!-- Status Tag -->
+                <LinearLayout
+                    android:id="@+id/cardStatusTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_card_white_unselected"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp">
+
+                    <TextView
+                        android:id="@+id/tvStatusBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● Idle"
+                        android:textColor="@color/muted_text"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Sound Tag -->
+                <LinearLayout
+                    android:id="@+id/cardSoundTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_card_white_unselected"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp">
+
+                    <TextView
+                        android:id="@+id/tvSoundBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔊 Library"
+                        android:textColor="@color/muted_text"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Timer Ring Container -->
+        <RelativeLayout
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="28dp">
+
+            <com.focusly.app.views.ProgressRingView
+                android:id="@+id/progressRing"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- Idle Prompt Text -->
+            <TextView
+                android:id="@+id/tvIdlePrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="Press the play button\nto start."
+                android:textColor="@color/charcoal"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Active Timer Display -->
+            <LinearLayout
+                android:id="@+id/layoutTimerDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvTimerDisplay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25:00"
+                    android:textColor="@color/charcoal"
+                    android:textSize="44sp"
+                    android:textStyle="bold" />
+
+                <!-- Focus Time Pill Badge -->
+                <TextView
+                    android:id="@+id/tvTimerSubBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_chip_energy"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:text="Focus Time"
+                    android:textColor="@color/primary_green"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- SETUP VIEW STATE: Duration Cards Row (Visible when IDLE) -->
+        <LinearLayout
+            android:id="@+id/layoutSetupCards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <!-- Card 1: Focus Duration -->
+            <LinearLayout
+                android:id="@+id/cardFocusDuration"
+                android:layout_width="0dp"
+                android:layout_height="96dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_selected"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Focus Duration"
+                    android:textColor="@color/muted_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvFocusDurationValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="25"
+                        android:textColor="@color/charcoal"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="min"
+                        android:textColor="@color/muted_text"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Card 2: Short Break -->
+            <LinearLayout
+                android:id="@+id/cardBreakDuration"
+                android:layout_width="0dp"
+                android:layout_height="96dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_lavender"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Short Break"
+                    android:textColor="@color/muted_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvBreakDurationValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textColor="@color/charcoal"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="min"
+                        android:textColor="@color/muted_text"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ACTIVE VIEW STATE: Session Goal Progress Card (Visible when RUNNING / PAUSED) -->
+        <LinearLayout
+            android:id="@+id/cardActiveSessionProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_card_selected"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="⚑ Session Goal"
+                    android:textColor="@color/charcoal"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvActiveLongBreakBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_card_white_unselected"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="⏰ 30m Long Break"
+                    android:textColor="@color/muted_text"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvCurrentSetFraction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1/4"
+                        android:textColor="@color/charcoal"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnSkipSet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_card_white_unselected"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:text="⏭ Skip"
+                        android:textColor="@color/charcoal"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="end"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvSetsToGo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4 sets to go"
+                        android:textColor="@color/charcoal"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stay in the zone"
+                        android:textColor="@color/muted_text"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- SETUP BOTTOM ACTIONS (Sound, Play, Sets - Visible when IDLE) -->
+        <LinearLayout
+            android:id="@+id/layoutSetupActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Left: Sound Toggle -->
+            <LinearLayout
+                android:id="@+id/btnSoundToggle"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_card_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_timer"
+                    app:tint="@color/charcoal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Sound"
+                    android:textColor="@color/muted_text"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Center: Play CTA Button -->
+            <FrameLayout
+                android:id="@+id/btnPlayCenter"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/bg_button_dark_green"
+                android:clickable="true"
+                android:elevation="6dp"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_play_arrow"
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+            <!-- Right: Sets Goals -->
+            <LinearLayout
+                android:id="@+id/btnSetsToggle"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/bg_card_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_leaf"
+                    app:tint="@color/primary_green" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Sets"
+                    android:textColor="@color/muted_text"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ACTIVE BOTTOM ACTIONS (Discard, Pause, Finish - Visible when RUNNING / PAUSED) -->
+        <LinearLayout
+            android:id="@+id/layoutActiveActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <!-- Left: Discard -->
+            <LinearLayout
+                android:id="@+id/btnDiscard"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_circle_peach"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_discard" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Discard"
+                    android:textColor="#D93838"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Center: Pause / Resume -->
+            <LinearLayout
+                android:id="@+id/btnPauseResume"
+                android:layout_width="100dp"
+                android:layout_height="72dp"
+                android:background="@drawable/bg_button_lavender"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgActivePauseIcon"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_pause"
+                    app:tint="@color/charcoal" />
+
+                <TextView
+                    android:id="@+id/tvActivePauseLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Pause"
+                    android:textColor="@color/charcoal"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Right: Finish -->
+            <LinearLayout
+                android:id="@+id/btnFinishActive"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/bg_circle_mint"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_check" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Finish"
+                    android:textColor="@color/primary_green"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
